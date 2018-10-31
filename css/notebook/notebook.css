@@ -1,0 +1,50 @@
+.nodebook-4A{
+	margin:30px auto;
+	width:23cm;
+	height:auto;
+	overflow:hidden;
+	background-color:#D7AF6C;
+}
+
+.nodebook-4A.white-bgk{
+	margin:30px auto;
+	width:23cm;
+	height:auto;
+	overflow:hidden;
+	background-color:#EEE3DF;
+}
+.nodebook-4A .nodebook-text{
+	width:21cm;
+	height:auto;
+	margin:20px auto;
+	
+}
+.nodebook-4A p{
+	height:39px;
+	line-height:39px;
+	padding:0px 10px ;
+	border-bottom:1px solid green;
+	-moz-box-sizing: border-box;  /*Firefox3.5+*/
+	-webkit-box-sizing: border-box; /*Safari3.2+*/
+	-o-box-sizing: border-box; /*Opera9.6*/
+	-ms-box-sizing: border-box; /*IE8*/
+	box-sizing: border-box;
+}
+.nodebook-4A p:last-child{ /*最后一个*/
+	border-bottom:0px;
+}
+
+
+/* 作文本 */
+.theText{
+	margin:30px auto;
+	width:23cm;
+	height:auto;
+	overflow:hidden;
+	background-color: #EEE3DF;
+}
+
+/*font*/
+.nodebook-4A .font-ks{
+	font-family: '微软雅黑';
+}

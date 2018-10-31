@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header id="header" class="header header-fixed">
+			
+	</header>
+	<div class="div-top"> 
+		
+	</div>
+	<div class="main-top">
+		<section class="sec" > 
+			<hr class="hr-none" id="fixed_top_identification"> <!--标识dom 顶部位置-->
+			<div id="fixed_top" class="sec-small-t">
+				<center><h1>顶部固定</h1></center>	
+			</div>
+		</section>
+	</div>	
+
+	<div class="div-bottom"> 
+
+	</div>
+	<div class="main-bottom">
+		<section class="sec" > 
+			<hr class="hr-none" id="fixed_bottom_identification"> <!--标识dom底部位置-->
+			<div id="fixed_bottom" class="sec-small-b">
+				<center><h1>底部固定</h1></center>	
+			</div>
+		</section>
+	</div>
+
+	<footer id="footer" class="footer">
+		<center><h1>footer</h1></center>
+	</footer>
+
+	<script type="text/javascript">
+
+		//需要停靠的dom
+		var DOM_T = document.getElementById('fixed_top');
+
+		var DOM_B = document.getElementById('fixed_bottom');
+
+		//页面初始加载事件
+		window.onload = function(){
+			var height=getClientHeight();  //浏览器可视高度
+			var theight=getScrollTop(); 
+			var rheight=getScrollHeight(); 
+			var bheight=rheight-theight-height; 
+
+			//到达底部固定
+			if(bheight>300){
+				DOM_B.style.position = 'fixed';
+				DOM_B.style.bottom = '0px';
+			}else{
+				DOM_B.style.position = 'static';
+			}
+		}
+
+		//页面滚动事件
+		window.onscroll = function () { 
+			var t = document.documentElement.scrollTop || document.body.scrollTop;
+ 
+			//滚动条距离浏览器顶部的高度
+			var scroll_top = document.documentElement.scrollTop;
+
+			//容器总高度
+			var scroll_height = document.documentElement.scrollHeight;
+
+			//body的高度
+			var body_height = document.body.clientHeight;
+
+			//dom的高度
+			var dom_height = DOM_T.offsetHeight;
+
+			//dom距离body顶部的高度
+			var dom_top = DOM_T.offsetTop;
+
+			//dom距离浏览器顶部的高度
+			var dom_browser_top = DOM_T.scrollTop;
+
+			//浏览器可视窗口高度
+			var browser_height = document.documentElement.clientHeight;
+
+			//hr 标识dom顶部位置，距离顶部的高度
+			var ident_top = document.getElementById('fixed_top_identification').offsetTop;
+
+			//hr 标识dom底部位置，距离顶部的高度
+			var ident_bottom = document.getElementById('fixed_bottom_identification').offsetTop;
+			
+			//到达顶部固定 
+			if(scroll_top > 450){
+				DOM_T.style.position = 'fixed';
+				DOM_T.style.top = '50px';
+			}else{
+				DOM_T.style.position = 'static';
+			}
+			
+
+			
+			var height=getClientHeight();  //浏览器可视高度
+			var theight=getScrollTop(); 
+			var rheight=getScrollHeight(); 
+			var bheight=rheight-theight-height; 
+			document.getElementById('header').innerHTML='此时浏览器可见区域高度为：'+height+'，此时文档内容实际高度为：'+rheight+'，此时滚动条距离顶部的高度为：'+theight+'，此时滚动条距离底部的高度为：'+bheight; 
+			document.getElementById('header').style.color="#fff";
+
+			//到达底部固定
+			if(bheight>300){
+				DOM_B.style.position = 'fixed';
+				DOM_B.style.bottom = '0px';
+			}else{
+				DOM_B.style.position = 'static';
+			}
+			
+		}
+
+		//窗口大小变化事件
+		window.onresize = function(){
+			var height=getClientHeight();  		//浏览器可视高度
+			var theight=getScrollTop(); 		//滚动条距离顶部的高度
+			var rheight=getScrollHeight();  		//文档内容高度
+			var bheight=rheight-theight-height; 	//文档内容高度- 滚动条距离顶部的高度-浏览器可视高度
+
+			var DOM_B = document.getElementById('fixed_bottom');
+
+			console.log(bheight);
+			//到达底部固定
+			if(bheight>300){
+				DOM_B.style.position = 'fixed';
+				DOM_B.style.bottom = '0px';
+			}else{
+				DOM_B.style.position = 'static';
+			}
+
+		}
+
+		//取窗口可视范围的高度 
+		function getClientHeight(){    
+			var clientHeight=0;
+			if(document.body.clientHeight&&document.documentElement.clientHeight){    
+				clientHeight=(document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;            
+			}else{    
+				clientHeight=(document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;        
+			}    
+			return clientHeight;    
+		}
+
+		//取窗口滚动条高度 
+		function getScrollTop(){    
+			var scrollTop=0;    
+			if(document.documentElement&&document.documentElement.scrollTop){    
+				scrollTop=document.documentElement.scrollTop;    
+			}else if(document.body){    
+				scrollTop=document.body.scrollTop;    
+			}    
+			return scrollTop;    
+		} 
+		//取文档内容实际高度 
+		function getScrollHeight(){    
+			return Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);    
+		} 
+
+	</script>
+</body>
+</html>

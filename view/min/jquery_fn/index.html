@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="jquery-1.11.2.min.js" type="text/javascript"></script>
+	<script src="helloword.js" type="text/javascript"></script>
+</head>
+<style type="text/css">
+	.Add{background-color: red;}
+	.Remove{background-color: green}
+</style>
+<body>
+<div id="div1" style="width: 400px; height: 30px; background-color: Gray;">
+My God</div>
+<input id="btn1" type="button" value="button"/> 
+
+
+
+<div class="hoverText Remove">
+First Button..
+</div>
+<div class="hoverText Remove">
+Second Button..
+</div>
+<div class="hoverText Remove">
+Third Button..
+</div> 
+
+
+
+<div id="divA" class="textBar">
+Mouse over here.....
+</div>
+<div id="divB" class="textBar">
+Mouse over here.....
+</div> 
+
+
+<!--图片查看-->
+<div id="myGallery">
+	<ul>
+		<li>
+			<a href="Images/Nature/apple.jpg" title = "The apple is the pomaceous...">
+				<img src="Images/Nature/apple_thumb.jpg">
+			</a>
+		</li>
+	</ul>
+</div>
+
+<script>
+$(function(){
+	$('#btn1').click(function(){
+		$('#div1').myPlugin();
+	});
+	$(".hoverText").hoverElement().css("color","yellow"); 
+
+	$('#divA').textHover({
+		Text:'你好Q',
+		ForeColor:'blue',
+		BackColor:'pink'
+	});
+	$('#divB').textHover();
+
+})
+</script>
+</body>
+</html>
